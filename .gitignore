@@ -1,0 +1,7 @@
+build/
+_frames/
+*.elf
+*.bin
+*.map
+.vscode/
+*.tmp
