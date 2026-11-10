@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@font-face {
+  font-family: 'yekan';
+  src: url('../public/font/Yekan.ttf');
+}
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'yekan';
+}
+*{
+  user-select: none;
+}
+.card {
+  background: linear-gradient(135deg, rgba(239,68,68,.7), rgba(255,255,255,.7));
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  max-width: 20rem;
+  width: 100%;
+  color: #c53030;
+  transition: transform .2s;
+}
+.card:hover { transform: scale(1.05); }
+.pointer{
+  cursor: pointer;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0.4),
+    rgba(255, 0, 0, 0.8)
+  );
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 0, 0);
+  box-shadow: 0 0 15px rgb(255, 0, 0);
+}
+.loading{
+  width: 50px;
+  height: 50px;
+  border: 5px solid transparent;
+  border-top: 5px solid rgb(0, 202, 209);
+  border-radius: 50%;
+  animation: loadinganim 1s linear infinite;
+}
+@keyframes loadinganim {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

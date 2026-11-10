@@ -1,7 +1,12 @@
-build/
-_frames/
-*.elf
-*.bin
-*.map
+/build/
+/_frames/
 .vscode/
 *.tmp
+docs/*.ttf
+docs/*.vf
+docs/banner_src.mp4
+docs/banner_preview.jpg
+
+dashboard/node_modules/
+dashboard/.next/
+dashboard/out/

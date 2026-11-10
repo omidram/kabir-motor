@@ -1,127 +1,121 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/کبیر_موتور-Kabir_Motor-1565C0?style=for-the-badge" alt="Kabir Motor">
-  <img src="https://img.shields.io/badge/board-ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32">
-  <img src="https://img.shields.io/badge/link-MQTT-660066?style=for-the-badge&logo=mqtt&logoColor=white" alt="MQTT">
-  <img src="https://img.shields.io/badge/map-live_GPS-2E7D32?style=for-the-badge" alt="Live GPS">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:07111f,45:1565C0,100:E7352C&height=130&section=header&text=&fontSize=0&animation=twinkling&stroke=FF3B3B&strokeWidth=1" width="100%" alt="">
 </p>
-
-<h1 align="center">Kabir Motor</h1>
-
-<p align="center">
-  ESP32 firmware for a connected motorcycle.<br>
-  GPS, motion, climate, relays, and a setup portal feed the live dashboard.
-</p>
-
-<p align="center">
-  <a href="https://github.com/omidram/kabir_motor"><b>Dashboard repo</b></a>
-  &nbsp;·&nbsp;
-  <a href="docs/ride.mp4"><b>Open the ride video</b></a>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/hero.jpg" alt="Kabir Motor dashboard during a ride on Shahid Hemmat Expressway" width="100%">
-</p>
-
-The frame above is a real ride. The ESP32 publishes speed, position, altitude, temperature, humidity, headlight state, and the trip distance. The [dashboard](https://github.com/omidram/kabir_motor) draws them on the map.
-
-## The ride
-
-Click the clip to open the full recording (`docs/ride.mp4`, about 8 seconds).
 
 <p align="center">
   <a href="docs/ride.mp4">
-    <img src="docs/ride.gif" alt="Animated ride: speed falls from 58 km/h while the map and front camera stay live" width="100%">
+    <img src="docs/banner.gif" alt="Kabir Motor title over a moving map" width="100%">
   </a>
 </p>
 
 <p align="center">
-  <a href="docs/ride.mp4"><img src="https://img.shields.io/badge/▶_Watch_the_recording-mp4-111111?style=for-the-badge" alt="Watch the recording"></a>
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=600&size=22&duration=2400&pause=700&color=FF3B3B&center=true&vCenter=true&width=780&height=48&lines=Live+GPS+on+the+city+map;Theft+alarm+and+crash+detection;Fuel+relay+%C2%B7+headlights+%C2%B7+climate;Firmware+and+dashboard%2C+one+repo" alt="Rotating tagline">
 </p>
 
-## What is on screen
+<p align="center">
+  <img src="https://img.shields.io/badge/ESP32-firmware-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32">
+  <img src="https://img.shields.io/badge/Next.js-dashboard-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/MQTT-live_link-660066?style=for-the-badge&logo=mqtt&logoColor=white" alt="MQTT">
+  <img src="https://img.shields.io/badge/GPS-on_the_map-2E7D32?style=for-the-badge" alt="GPS">
+</p>
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=arduino,cpp,nextjs,react,ts,nodejs,docker&perline=7" alt="Arduino, C++, Next.js, React, TypeScript, Node, Docker">
+</p>
+
+<p align="center">
+  One motorcycle. Two halves of the same repository.<br>
+  <b><a href="kabir_motor_main_final_MPU_full.ino">Firmware</a></b>
+  on the bike, and the
+  <b><a href="dashboard">dashboard</a></b>
+  that draws the ride.<br>
+  <a href="docs/ride.mp4"><img src="https://img.shields.io/badge/▶_Play_the_ride-mp4-111111?style=for-the-badge" alt="Play the ride"></a>
+</p>
+
+## The ride
+
+The map, the dial, and the front camera are from one recording. Click either clip to open the video.
+
+<p align="center">
+  <a href="docs/ride.mp4">
+    <img src="docs/ride.gif" alt="Full dashboard during the ride" width="100%">
+  </a>
+</p>
 
 <table>
   <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/screenshots/status-bar.jpg" alt="Status bar with user, satellites, device id, speed, altitude, and time">
-      <br><b>Status bar</b>
-      <br>User, satellite count, device id, speed, altitude, and clock. Speed and altitude come from the GPS sentence in the state message.
+    <td width="42%" align="center" valign="middle">
+      <a href="docs/ride.mp4"><img src="docs/speed.gif" alt="Speedometer falling through the 50s" width="100%"></a>
+      <br><b>Speed</b>
+      <br>The arc follows GPS speed. The pill above it is the headlight.
     </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/screenshots/speedometer.jpg" alt="Circular speedometer reading 58 km/h with the headlight marked off">
-      <br><b>Speedometer</b>
-      <br>GPS speed in km/h. The pill above the dial is the headlight relay, driven by the light sensor on GPIO 34.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/screenshots/camera.jpg" alt="Front camera card showing a live view of the road and a record button">
+    <td width="58%" align="center" valign="middle">
+      <a href="docs/ride.mp4"><img src="docs/camera.gif" alt="Front camera while the bike moves" width="100%"></a>
       <br><b>Front camera</b>
-      <br>Live view and record sit on the map. The firmware's job is the telemetry around that picture: position, speed, and alarms.
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/screenshots/climate.jpg" alt="Climate card showing 35 degrees and 19 percent humidity">
-      <br><b>Climate</b>
-      <br>SHT20 temperature and humidity, plus the offsets saved in the setup portal, ride along in every publish.
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <img src="docs/screenshots/distance.jpg" alt="Trip distance chip reading 384 meters">
-      <br><b>Trip distance</b>
-      <br>The dashboard integrates the GPS track. This ride is still on the Hemmat interchange, 384 m in.
+      <br>Live view on the map, with record under the picture.
     </td>
   </tr>
 </table>
 
-## Two parts, one motorcycle
+<p align="center">
+  <img src="docs/screenshots/status-bar.jpg" alt="Status bar" width="92%">
+</p>
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/screenshots/climate.jpg" alt="35 degrees and 19 percent humidity" width="80%">
+      <br><b>Climate</b>
+      <br>SHT20 temperature and humidity, with the offsets saved in the setup portal.
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/screenshots/distance.jpg" alt="Trip distance" width="92%">
+      <br><b>Distance</b>
+      <br>The dashboard integrates the GPS track as the bike moves.
+    </td>
+  </tr>
+</table>
+
+## Garage
+
+The dashboard ships a photo and a 3D model for each bike. These four are from the Kabir line, in `dashboard/public`.
+
+<p align="center">
+  <img src="dashboard/public/motor/KABIR%20125.png" alt="Kabir 125" width="22%">
+  <img src="dashboard/public/motor/KABIR%20150.png" alt="Kabir 150" width="22%">
+  <img src="dashboard/public/motor/KABIR%20200.png" alt="Kabir 200" width="22%">
+  <img src="dashboard/public/motor/KABIR%20A1%20249.png" alt="Kabir A1 249" width="22%">
+</p>
+
+## How a packet becomes a picture
 
 ```mermaid
 flowchart LR
-  subgraph bike [On the motorcycle]
-    GPS[GPS]
-    MPU[MPU6050]
-    SHT[SHT20]
-    LDR[Light sensor]
-    RELAY[Fuel and light relays]
-    ESP[ESP32 firmware]
-  end
-  subgraph cloud [Link]
-    MQTT[MQTT broker]
-  end
-  subgraph desk [Dashboard]
-    MAP[Live map]
-    UI[Speed, camera, climate, alarm]
-  end
-  GPS --> ESP
-  MPU --> ESP
-  SHT --> ESP
-  LDR --> ESP
-  RELAY --> ESP
-  ESP -->|home/esp32-gps/state| MQTT
-  MQTT --> MAP
-  MQTT --> UI
-  UI -->|ARM / DISARM and fuel relay| MQTT
+  GPS[GPS] --> ESP[ESP32 sketch]
+  MPU[MPU6050] --> ESP
+  SHT[SHT20] --> ESP
+  LDR[Light sensor] --> ESP
+  ESP -->|state every 2s| MQTT[MQTT]
+  MQTT --> MAP[Next.js map]
+  MAP -->|ARM, DISARM, fuel| MQTT
   MQTT --> ESP
 ```
 
-| | This repo | Dashboard |
+| On the bike | In this repo | On screen |
 | --- | --- | --- |
-| What it is | ESP32 Arduino sketch | Next.js live map and controls |
-| Where | `kabir_motor_main_final_MPU_full.ino` | [omidram/kabir_motor](https://github.com/omidram/kabir_motor) |
-| Talks over | Wi-Fi and MQTT | The same broker, plus the camera stream |
+| ESP32 sketch | `kabir_motor_main_final_MPU_full.ino` | — |
+| Next.js app | `dashboard/` | Map, dial, camera, climate, alarm |
+| Telemetry | `home/esp32-gps/state` | Status bar, speed, altitude |
+| Theft alarm | `home/esp32-gps/mpu/cmd` | Shield button |
+| Fuel relay | `relay/gr01/control` | Engine control |
+| Camera stream | `dashboard/app/api/mjpeg` | Front camera card |
 
-## What the firmware does
+<details>
+<summary><b>Telemetry JSON</b></summary>
 
-- **Tracks the bike.** A GPS module on Serial1 (9600 baud, RX 16, TX 17) fills latitude, longitude, speed, satellites, and altitude.
-- **Watches the chassis.** MPU6050 at I2C `0x68` measures pitch, roll, yaw, and acceleration. While the alarm is armed it looks for theft motion. While it is disarmed it looks for a crash or a fall.
-- **Feels the air.** SHT20 temperature and humidity, with portal offsets, go out in the same JSON.
-- **Switches power.** Fuel relay on GPIO 15. Headlight relay on GPIO 27, with an LDR on GPIO 34 so the lamp follows daylight.
-- **Remembers the setup.** Wi-Fi, MQTT host and port, and sensor offsets live in Preferences. A 3 second press on GPIO 14 opens the `KabirMotor-<name>` access point and the setup page. A short press restarts the board.
-- **Logs the ride.** When an SD card is present on chip-select GPIO 5, the sketch appends `gps.csv`, `mpu.csv`, `relay.csv`, `mqtt.csv`, and `system.csv`. The portal can download them.
-- **Updates in place.** The portal has an OTA page, and ArduinoOTA runs once Wi-Fi is up.
+<br>
 
-Telemetry is published about every 2 seconds, retained, on `home/esp32-gps/state`:
+Published about every 2 seconds, retained:
 
 ```json
 {
@@ -138,7 +132,12 @@ Telemetry is published about every 2 seconds, retained, on `home/esp32-gps/state
 
 `mpu.event` is `normal`, `armed`, `theft_motion`, or `crash_or_fall`.
 
-### Commands the dashboard can send
+</details>
+
+<details>
+<summary><b>Commands the dashboard sends</b></summary>
+
+<br>
 
 | Topic | Payload | Effect |
 | --- | --- | --- |
@@ -146,11 +145,16 @@ Telemetry is published about every 2 seconds, retained, on `home/esp32-gps/state
 | `home/esp32-gps/mpu/cmd` | `{"COMMAND":"ARM"}` | Arm theft detection. Crash detection pauses. |
 | `home/esp32-gps/mpu/cmd` | `{"COMMAND":"DISARM"}` | Disarm theft detection. Crash and fall detection resumes. |
 
-Alarms go out on `home/esp32-gps/mpu/theft`, `home/esp32-gps/mpu/crash`, and `home/esp32-gps/mpu/state`.
+Alarms publish on `home/esp32-gps/mpu/theft`, `home/esp32-gps/mpu/crash`, and `home/esp32-gps/mpu/state`.
 
-Park the motorcycle level and still, then use **تنظیم موقعیت فعلی به عنوان صفر MPU** on the portal (or arm the alarm) so theft detection has a baseline. The baseline is stored in Preferences and survives reboot.
+Park the motorcycle level and still, then set the MPU zero from the setup portal so theft detection has a stored baseline.
 
-## Wiring
+</details>
+
+<details>
+<summary><b>Wiring</b></summary>
+
+<br>
 
 | Function | ESP32 pin |
 | --- | --- |
@@ -159,13 +163,46 @@ Park the motorcycle level and still, then use **تنظیم موقعیت فعلی
 | Fuel relay | 15 |
 | Headlight relay | 27 |
 | Setup button, input pull-up | 14 |
-| Light sensor (LDR) | 34 |
+| Light sensor | 34 |
 | SD card chip select | 5 |
 | MPU6050 and SHT20 | I2C, default SDA 21 / SCL 22. MPU address `0x68` |
 
-## Flash it
+Hold the setup button for 3 seconds to open the `KabirMotor-<name>` access point. A short press restarts the board. Wi-Fi, the MQTT broker, and the SHT20 offsets are saved on the device from that page.
 
-Board package used for the local build: **esp32 by Espressif, core 3.3.7**, FQBN `esp32:esp32:esp32`, 240 MHz, 4 MB flash, 921600 upload.
+SD logs, when a card is present: `gps.csv`, `mpu.csv`, `relay.csv`, `mqtt.csv`, `system.csv`.
+
+</details>
+
+<details>
+<summary><b>Run the dashboard</b></summary>
+
+<br>
+
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+`dashboard/docker-compose.yml` starts the published image on port 3000:
+
+```bash
+cd dashboard
+docker compose up
+```
+
+</details>
+
+<details>
+<summary><b>Flash the firmware</b></summary>
+
+<br>
+
+Open `kabir_motor_main_final_MPU_full.ino` in the Arduino IDE.
+
+Board package used for the local build: **esp32 by Espressif, core 3.3.7**, 240 MHz, 4 MB flash, 921600 upload.
 
 Libraries the sketch includes:
 
@@ -176,6 +213,10 @@ Libraries the sketch includes:
 - DFRobot SHT20
 - A local `mpu6050` library with `wakeSensor`, `readAccelData`, `rawAccelToGForce`, `calculateAnglesFromAccel`, `calculateGyroOffset`, and `calculateAccelOffset`
 
-Open `kabir_motor_main_final_MPU_full.ino` in the Arduino IDE and upload. Compiled binaries under `build/` stay on the machine that flashed the board. They are not part of this repository.
+Compiled files under `build/` stay on the machine that flashed the board.
 
-After the first boot, hold the setup button for 3 seconds, join the access point, and save the Wi-Fi network and the MQTT broker. The broker address is stored on the device. It is not hardcoded.
+</details>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E7352C,55:1565C0,100:07111f&height=120&section=footer&text=&fontSize=0&animation=twinkling&stroke=FF3B3B&strokeWidth=1" width="100%" alt="">
+</p>
